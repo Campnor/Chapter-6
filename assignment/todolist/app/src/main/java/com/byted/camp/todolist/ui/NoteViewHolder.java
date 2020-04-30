@@ -42,6 +42,7 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
         contentText = itemView.findViewById(R.id.text_content);
         dateText = itemView.findViewById(R.id.text_date);
         deleteBtn = itemView.findViewById(R.id.btn_delete);
+
     }
 
     public void bind(final Note note) {
@@ -54,7 +55,14 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 note.setState(isChecked ? State.DONE : State.TODO);
-                operator.updateNote(note);
+                //operator.updateNote(note);
+                if (note.getState() == State.DONE) {
+                    contentText.setTextColor(Color.GRAY);
+                    contentText.setPaintFlags(contentText.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                } else {
+                    contentText.setTextColor(Color.BLACK);
+                    contentText.setPaintFlags(contentText.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+                }
             }
         });
         deleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -71,5 +79,9 @@ public class NoteViewHolder extends RecyclerView.ViewHolder {
             contentText.setTextColor(Color.BLACK);
             contentText.setPaintFlags(contentText.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
         }
+        if(note.getPriority().equals("HIGH"))
+            this.itemView.setBackgroundColor(Color.RED);
+        else if(note.getPriority().equals("MEDIUM"))
+            this.itemView.setBackgroundColor(Color.GREEN);
     }
 }

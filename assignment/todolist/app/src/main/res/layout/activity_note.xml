@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,6 +16,26 @@
         android:gravity="start|top"
         android:padding="4dp"
         android:textColor="#1e1e1e" />
+
+
+    <CheckBox
+        android:id="@+id/checkBoxHigh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="priority High"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxMed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="priority Medium"/>
+
+    <CheckBox
+        android:id="@+id/checkBoxLow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="priority Low"
+        android:checked="true"/>
 
     <Button
         android:id="@+id/btn_add"

@@ -13,10 +13,15 @@ public class Note {
     private Date date;
     private State state;
     private String content;
+    private String priority;
 
     public Note(long id) {
         this.id = id;
     }
+
+    public String getPriority(){return priority;}
+
+    public void setPriority(String priority){this.priority = priority;}
 
     public Date getDate() {
         return date;
